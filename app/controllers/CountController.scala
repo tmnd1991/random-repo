@@ -1,9 +1,10 @@
 package controllers
 
+import java.util.concurrent.ThreadPoolExecutor
 import javax.inject._
+
 import play.api._
 import play.api.mvc._
-
 import services.Counter
 
 /**
@@ -20,6 +21,8 @@ class CountController @Inject() (counter: Counter) extends Controller {
    * count. The result is plain text. This `Action` is mapped to
    * `GET /count` requests by an entry in the `routes` config file.
    */
-  def count = Action { Ok(counter.nextCount().toString) }
+  def count: Action[AnyContent] = Action {
+    Ok(counter.nextCount().toString)
+  }
 
 }

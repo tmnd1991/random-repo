@@ -1,6 +1,7 @@
 import com.google.inject.AbstractModule
 import java.time.Clock
 
+import fs2.Stream
 import services.{ApplicationTimer, AtomicCounter, Counter}
 
 /**
@@ -15,7 +16,7 @@ import services.{ApplicationTimer, AtomicCounter, Counter}
  */
 class Module extends AbstractModule {
 
-  override def configure() = {
+  override def configure(): Unit = {
     // Use the system clock as the default implementation of Clock
     bind(classOf[Clock]).toInstance(Clock.systemDefaultZone)
     // Ask Guice to create an instance of ApplicationTimer when the
