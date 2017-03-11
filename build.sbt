@@ -13,3 +13,11 @@ libraryDependencies ++= Seq(
   "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test
 )
 
+
+scalastyleFailOnError := true
+
+org.scalastyle.sbt.ScalastylePlugin.projectSettings ++
+  Seq(
+    org.scalastyle.sbt.ScalastylePlugin.scalastyleConfig in Compile := file("project/scalastyle-config.xml"),
+    org.scalastyle.sbt.ScalastylePlugin.scalastyleConfig in Test := file("project/test-scalastyle-config.xml")
+  )
