@@ -15,9 +15,15 @@ libraryDependencies += "co.fs2" %% "fs2-io" % "0.9.4"
 libraryDependencies += "zamblauskas" %% "scala-csv-parser" % "0.11.4"
 
 libraryDependencies ++= Seq(
+  "com.typesafe.play" %% "play-slick" % "2.0.0",
+  "com.typesafe.play" %% "play-slick-evolutions" % "2.0.0"
+)
+
+libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
+  evolutions,
   "org.scalatestplus.play" %% "scalatestplus-play" % "1.5.1" % Test
 )
 
