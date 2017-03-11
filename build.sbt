@@ -20,7 +20,6 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  jdbc,
   cache,
   ws,
   evolutions,
