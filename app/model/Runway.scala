@@ -22,6 +22,4 @@ case class Runway(id: Long,
                   he_longitude_deg: Option[Float],
                   he_elevation_ft: Option[Float],
                   he_heading_degT: Option[Float],
-                  he_displaced_threshold_ft: Option[Float]) {
-
-}
+                  he_displaced_threshold_ft: Option[Float])

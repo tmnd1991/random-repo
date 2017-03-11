@@ -16,9 +16,7 @@ trait CsvParser[T] {
     lines.flatMap { l =>
       parseLine(l, header) match {
         case Success(result) => Some(result)
-        case Failure(e) =>
-          e.printStackTrace()
-          None
+        case Failure(e) => None
       }
     }
   }
