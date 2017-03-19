@@ -1,7 +1,6 @@
 import com.google.inject.AbstractModule
 import java.time.Clock
 
-import fs2.Stream
 import services.{ApplicationTimer, AtomicCounter, Counter}
 
 /**
