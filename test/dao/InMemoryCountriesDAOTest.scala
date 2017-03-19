@@ -54,5 +54,6 @@ class InMemoryCountriesDAOTest extends FlatSpec with Matchers {
     fixture.dao.topCountriesForAirportCount(10, Ordering.Int.reverse).map(_._1.code) should contain theSameElementsAs(
       "US" :: "BR" :: "CA" :: "AU" :: "RU" :: "FR" :: "AR" :: "DE" :: "CO" :: "VE" :: Nil
     )
+
   }
 }
