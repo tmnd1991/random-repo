@@ -15,3 +15,12 @@ GET        /message             controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+
+# V1 APIS
+GET        /v1/airports                 controllers.AirportsController.airportsForCountry(country: String)
+
+GET        /v1/countries                controllers.CountriesController.countriesRankBy(query: String, order: String, count: Int ?= 10)
+
+GET        /v1/runways                  controllers.RunwaysController.runwaysRankBy(query: String, order: String, count: Int ?= 10)
+
+GET        /v1/countries/runways        controllers.CountriesController.countriesAndRunwayTypes()
