@@ -8,10 +8,6 @@ scalaVersion := "2.11.7"
 
 resolvers += Resolver.bintrayRepo("zamblauskas", "maven")
 
-libraryDependencies += "co.fs2" %% "fs2-core" % "0.9.4"
-
-libraryDependencies += "co.fs2" %% "fs2-io" % "0.9.4"
-
 libraryDependencies += "zamblauskas" %% "scala-csv-parser" % "0.11.4"
 
 libraryDependencies ++= Seq(
