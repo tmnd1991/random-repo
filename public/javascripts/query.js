@@ -10,23 +10,19 @@ $('#querybox').keyup(function (e) {
 });
 function search() {
     var existingString = $("#querybox").val().trim();
-    console.log("string = " + existingString);
-    console.log("size = " + existingString.length);
+    var resultElement = $('#results');
     if (existingString.length > 0) {
         $.get('/v1/airports?country=' + existingString, function (data) {
-            $('#results').html(renderResults(data));
-            $('#results').show();
+            resultElement.html(renderResults(data));
         }).fail(function () {
             var result = '<div class="row"><div class="large-12 columns"><h3>Cannot find any country for: ' +
                 existingString + '</h3></div></div>';
-            $('#results').html(result);
-            $('#results').show();
+            resultElement.html(result);
         });
     }
 }
 
 function renderResults(data) {
-    console.log(data);
     var result = '<div class="row"><div class="large-12 columns"><h3>' + data.name + '</h3></div></div>' +
         '<div class="row"><div class="large-12 columns">';
     if (data.airports.length > 0) {
