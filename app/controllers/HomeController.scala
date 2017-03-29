@@ -21,4 +21,12 @@ class HomeController @Inject() extends Controller {
     Ok(views.html.index("Your new application is ready."))
   }
 
+  def query: Action[AnyContent] = Action {
+    Ok(views.html.query())
+  }
+
+  def reports: Action[AnyContent] = Action {
+    Ok(views.html.reports())
+  }
+
 }

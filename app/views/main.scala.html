@@ -5,19 +5,27 @@
  * object to insert into the body of the page.
  *@
 @(title: String)(content: Html)
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
     <head>
-        @* Here's where we render the page title `String`. *@
-        <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lunatech code assessment</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/foundation.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/app.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
     </head>
     <body>
-        @* And here's where we render the `Html` object containing
-         * the page content. *@
+        <script src="@routes.Assets.versioned("javascripts/vendor/jquery.js")" type="text/javascript"></script>
+        <div class="row">
+            <div class="large-12 columns">
+                <h1>Lunatech Code Assessment</h1>
+            </div>
+        </div>
         @content
+        <script src="@routes.Assets.versioned("javascripts/vendor/what-input.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/vendor/foundation.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
     </body>
 </html>
