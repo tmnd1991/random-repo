@@ -27,14 +27,12 @@ function searchCountriesAndCount(order, htmlElement) {
 }
 
 function renderCountriesAndCount(data) {
-    var result = "";
+    var result = '<table><thead><tr><th>Country</th><th>Count</th></tr><tbody>';
     data.forEach(function (cAndCount) {
-        result += '<div class="row callout">' +
-            '<div class="small-6 columns country-name">' +
-            '<span class="hide-for-small-only">' + cAndCount.name + ' - </span>' + cAndCount.iso + '</div>' +
-            '<div class="small-6 columns country-count">' + cAndCount.count + '</div>' +
-            '</div>';
+        result += '<tr><td><span class="hide-for-small-only">' + cAndCount.name + ' - </span>' + cAndCount.iso + '</td>' +
+            '<td>' + cAndCount.count + '</td></tr>';
     });
+    result += '</tbody></table>';
     return result;
 }
 
@@ -51,7 +49,7 @@ function renderCountriesAndSurfaceTypes(data) {
     var result = '';
     data.forEach(function (cAndSurfaces) {
         result += '<div class="row callout"><div class="row">' +
-            '<div class="small-12 columns country-name">' + cAndSurfaces.name + ' - ' + cAndSurfaces.iso + '</div>' +
+            '<div class="small-12 columns country-name"><h4>' + cAndSurfaces.name + ' - ' + cAndSurfaces.iso + '</h4></div>' +
             '</div>';
         result += '<div class="row"><div class="small-12 columns"><ul>';
         cAndSurfaces.surfaceTypes.forEach(function (surface) {
@@ -73,12 +71,10 @@ function searchRunwaysId(order, htmlElement) {
 }
 
 function renderRunwaysId(data) {
-    var result = "";
+    var result = '<table><thead><tr><th>Runway Id</th><th>Count</th></tr><tbody>';
     data.forEach(function (idCount) {
-        result += '<div class="row callout">' +
-            '<div class="small-6 columns country-name">' + idCount.id + '</div>' +
-            '<div class="small-6 columns country-count">' + idCount.count + '</div>' +
-            '</div>';
+        result += '<tr><td>' + idCount.id + '</td><td>' + idCount.count + '</td></tr>';
     });
+    result += '</tbody></table>';
     return result;
 }

@@ -23,11 +23,12 @@ object Converter {
   }
 
   def apply(runway: Runway): RunwayDTO = {
-    RunwayDTO(runway.airport_ident, runway.length_ft, runway.width_ft, runway.surface)
+    RunwayDTO(runway.airport_ident, runway.le_latitude_deg, runway.le_longitude_deg,
+      runway.length_ft, runway.width_ft, runway.surface)
   }
 
   def apply(country: Country, airports: Map[Airport, Iterable[Runway]]): CountryAirportsDTO = {
-    CountryAirportsDTO(country.name, airports.map { case (airport, runways) => Converter(airport, runways) })
+    CountryAirportsDTO(country.name, country.code, airports.map { case (airport, runways) => Converter(airport, runways) })
   }
 
   def apply(id: String, count: Int): IdCountDTO = {

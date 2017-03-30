@@ -23,25 +23,43 @@ function search() {
 }
 
 function renderResults(data) {
-    var result = '<div class="row"><div class="large-12 columns"><h3>' + data.name + '</h3></div></div>' +
+    var result = '<div class="row"><div class="large-12 columns"><h3>' + data.name + ' - ' + data.iso + '</h3></div></div>' +
         '<div class="row"><div class="large-12 columns">';
     if (data.airports.length > 0) {
-        result += '<ul>';
         data.airports.forEach(function (airport) {
-            result += '<li>' + airport.name + '</li>';
+            result += '<div class = "row callout">';
+            result += '<h4>' + airport.name + '</h4>';
             if (airport.runways.length > 0) {
-                result += '<ul>';
+                result += '<table><thead><tr>' +
+                    '<th>Identifier</th>' +
+                    '<th>Surface</th>' +
+                    '<th>Length (ft)</th>' +
+                    '<th class="hide-for-small-only">Width(ft)</th>' +
+                    '<th class="hide-for-small-only">Latitude °</th>' +
+                    '<th class="hide-for-small-only">Longitude °</th>' +
+                    '</tr></thead><tbody>';
                 airport.runways.forEach(function (runway) {
-                    result += '<li> airport identifier: ' + runway.airport_ident +
-                        ' length (ft): ' + runway.length_ft + ' surface: ' + runway.surface + '</li>';
+                    result += '<tr><td>' + runway.airport_ident + '</td><td>' + runway.surface + '</td>' +
+                        '<td>' + getOrElse(runway.length_ft, 'N.A.') + '</td>' +
+                        '<td class="hide-for-small-only">' + getOrElse(runway.width_ft, 'N.A.') + '</td>' +
+                        '<td class="hide-for-small-only">' + getOrElse(runway.latitude_deg, 'N.A.') + '</td>' +
+                        '<td class="hide-for-small-only">' + getOrElse(runway.longitude_deg, 'N.A.') + '</td>';
                 });
-                result += '</ul>';
+                result += '</tbody></table>';
             }
+            result += '</div>';
         });
-        result += '</ul>';
     } else {
         result += "There isn't any airport in " + data.name + "!";
     }
     result += '</div></div>';
     return result;
+}
+
+function getOrElse(x, fallback) {
+    if (x === undefined) {
+        return fallback;
+    } else {
+        return x;
+    }
 }
