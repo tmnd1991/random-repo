@@ -1,0 +1,11 @@
+language: scala 
+script:
+   - sbt ++$TRAVIS_SCALA_VERSION clean coverage test coverageReport
+   - sbt ++$TRAVIS_SCALA_VERSION scalastyle test:scalastyle
+scala:
+   - 2.11.7
+jdk: oraclejdk8
+sudo: true
+
+
+

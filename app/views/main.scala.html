@@ -1,0 +1,31 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(title: String)(content: Html)
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lunatech code assessment</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/foundation.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/app.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    </head>
+    <body>
+        <script src="@routes.Assets.versioned("javascripts/vendor/jquery.js")" type="text/javascript"></script>
+        <div class="row">
+            <div class="large-12 columns">
+                <h1>Lunatech Code Assessment</h1>
+            </div>
+        </div>
+        @content
+        <script src="@routes.Assets.versioned("javascripts/vendor/what-input.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/vendor/foundation.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
+    </body>
+</html>

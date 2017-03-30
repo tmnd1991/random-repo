@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET        /                    controllers.HomeController.index
+
+GET        /query               controllers.HomeController.query
+
+GET        /reports             controllers.HomeController.reports
+# An example controller showing how to use dependency injection
+GET        /count               controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET        /message             controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+
+# V1 APIS
+GET        /v1/airports                 controllers.AirportsController.airportsForCountry(country: String)
+
+GET        /v1/countries                controllers.CountriesController.countriesRankBy(query: String, order: String, count: Int ?= 10)
+
+GET        /v1/runways                  controllers.RunwaysController.runwaysRankBy(query: String, order: String, count: Int ?= 10)
+
+GET        /v1/countries/runways        controllers.CountriesController.countriesAndRunwayTypes()
